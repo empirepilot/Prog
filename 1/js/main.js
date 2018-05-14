@@ -4,7 +4,6 @@ document.body.appendChild(vis)
 let bubbletje = document.createElement("bubble")
 document.body.appendChild(bubbletje)
 
-
 function randomPositionB(min, max) {
     min = 20
     max = window.innerWidth
@@ -17,14 +16,31 @@ function randomPositionH(min, max) {
 }
 function randomPositionBubble(min, max) {
     min = 20
-    max = screenSizeB
+    max = window.innerWidth
     return Math.random() * (max - min) + 1
 }
 
 for(let i = 0; i < 100; i++) {
-let randomColor = Math.floor(Math.random() * 361)
+    console.log(i)
 
+      
+    let randomColor = Math.floor(Math.random() * 361)
+// geef de vis een random positie en een random kleur    
+    let fishes = document.getElementsByTagName("fish")
+    let fish = fishes[i]
+    fish.style.left = randomPositionB() + "px"
+    fish.style.top = randomPositionH() + "px"
+    fish.style.webkitFilter = "hue-rotate(200deg)"
+    fish.style.filter = "hue-rotate(" + randomColor + "deg)"
+
+    // geef de bubble een random positie
+
+    let bubbles = document.getElementsByTagName("bubble")
+    let bubble = bubbles[i]
+    bubble.style.left = randomPositionBubble() + "px"
+    bubble.style.top = "0px"
 }
+
 //
 
 
@@ -33,20 +49,6 @@ let randomColor = Math.floor(Math.random() * 361)
 //
 window.addEventListener("load", function () {
 
-// geef de vis een random positie en een random kleur    
-    let fishes = document.getElementsByTagName("fish")
-    let fish = fishes[0]
-    fish.style.left = randomPositionB() + "px"
-    fish.style.top = randomPositionH() + "px"
-    fish.style.webkitFilter = "hue-rotate(200deg)"
-    fish.style.filter = "hue-rotate(" + randomColor + "deg)"
-
-    // geef de bubble een random positie
-    //
-    let bubbles = document.getElementsByTagName("bubble")
-    let bubble = bubbles[0]
-    bubble.style.left = randomPositionBubble() + "px"
-    bubble.style.top = "0px"
 
 
     console.log("start het aquarium")
