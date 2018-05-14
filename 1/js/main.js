@@ -21,8 +21,8 @@ function randomPositionH(min, max) {
 
 let fishes = document.getElementsByTagName("fish")
 let fish = fishes[0]
-fish.style.left = randomPositionB + "px"
-fish.style.top = randomPositionH + "px"
+fish.style.left = randomPositionB() + "px"
+fish.style.top = randomPositionH() + "px"
 fish.style.webkitFilter = "hue-rotate(200deg)"
 fish.style.filter = "hue-rotate(200deg)"
 
